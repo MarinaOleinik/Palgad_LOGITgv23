@@ -30,3 +30,24 @@ def andmete_kustutamine(i:list,p:list)->any:
                 p.pop(i.index(nimi))
                 i.remove(nimi)                
     return i,p
+def kellel_on_suurim_palk(i:list,p:list)->list:
+    """
+    """
+    nimed=[]
+    max_palk=max(p)
+    ind=p.index(max_palk)
+    for palk in p:
+        if max_palk==palk:
+            nimi=i[p.index(palk,ind)]
+            nimed.append(nimi)
+            ind+=1
+    return nimed
+def sorteerimine(i:list,p:list)->any:
+    """
+    """
+    for n in range(0,len(i)):
+        for m in range(n,len(i)):
+            if p[n]>p[m]:
+                p[n],p[m]=p[m],p[n]
+                i[n],i[m]=i[m],i[n]
+    return i,p
